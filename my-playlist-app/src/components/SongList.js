@@ -7,8 +7,8 @@ import ListItem from "./ListItem"
 function SongList(props) {
     const songItems = props.songs.map(song =>
 
-        <ListItem key={song.id} title={song.title} artist={song.artist}
-            genre={song.genre} rating={song.rating} />)
+        <ListItem key={song.id} id={song.id} title={song.title} artist={song.artist}
+            genre={song.genre} rating={song.rating} removeSong={props.removeSong} />)
 
     return (
         <div>

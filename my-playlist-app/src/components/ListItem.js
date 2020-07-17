@@ -8,6 +8,7 @@ function ListItem(props) {
             <div>{props.artist}</div>
             <div>{props.genre}</div>
             <div>{props.rating}</div>
+            <button onClick={() => props.removeSong(props.id)}>Remove</button>
         </div>
     )
 

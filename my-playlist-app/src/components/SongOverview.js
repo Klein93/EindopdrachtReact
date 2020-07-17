@@ -1,9 +1,6 @@
 import React from "react"
 import SongForm from "./SongForm"
 import SongList from "./SongList"
-import CheckboxTitle from "./CheckboxTitle"
-import CheckboxArtist from "./CheckboxArtist"
-import CheckboxRating from "./CheckboxRating"
 import Checkbox from "./Checkbox"
 
 class SongOverview extends React.Component {
@@ -17,28 +14,28 @@ class SongOverview extends React.Component {
                     id: 1,
                     title: `Floppy`,
                     artist: `Youp van 't Hack`,
-                    genre: `Blues`,
+                    genre: `blues`,
                     rating: `2`
                 },
                 {
                     id: 2,
                     title: `Another Bug in the File`,
                     artist: `Pink Floyd`,
-                    genre: `Rock`,
+                    genre: `rock`,
                     rating: `5`
                 },
                 {
                     id: 3,
                     title: `Sorry`,
                     artist: `Mark Rutte`,
-                    genre: `Alternative`,
+                    genre: `alternative`,
                     rating: `3`
                 },
                 {
                     id: 4,
                     title: `Lucretia my Reflection`,
                     artist: `Sisters of Mercy`,
-                    genre: `Rock`,
+                    genre: `rock`,
                     rating: `10`
                 }
             ]
@@ -48,7 +45,8 @@ class SongOverview extends React.Component {
         this.sortTitle = this.sortTitle.bind(this)
         this.sortArtist = this.sortArtist.bind(this)
         this.sortRating = this.sortRating.bind(this)
-
+        this.sortGenre = this.sortGenre.bind(this)
+        this.removeSong = this.removeSong.bind(this)
     }
 
     addSong = (song) => {
@@ -82,18 +80,32 @@ class SongOverview extends React.Component {
         this.setState({
             songs: sortedByRating
         })
-    }
+    };
+
+    sortGenre = () => {
+        const sortedByGenre = this.state.songs.sort((a, b) => (a.genre > b.genre) ? 1 : -1);
+        this.setState({
+            songs: sortedByGenre
+        })
+    };
+
+    removeSong = (songId) => {
+        const updatedList = this.state.songs.filter((item) => {
+            return (item.id !== songId)
+        })
+        this.setState({
+            songs: updatedList
+        })
+    };
 
     render() {
         return (
             <div>
                 <Checkbox sortFunction={this.sortTitle} />Sort by Title
                 <Checkbox sortFunction={this.sortArtist} />Sort by Artist
+                <Checkbox sortFunction={this.sortGenre} />Sort by Genre
                 <Checkbox sortFunction={this.sortRating} />Sort by Rating
 
-                {/* <CheckboxTitle filterTitle={this.filterTitle} />
-                <CheckboxArtist filterArtist={this.filterArtist} />
-                <CheckboxRating filterRating={this.filterRating} /> */}
                 <SongForm addSong={this.addSong} />
                 <table style={{ width: `100%` }}>
                     <tbody>
@@ -105,7 +117,7 @@ class SongOverview extends React.Component {
                         </tr>
                     </tbody>
                 </table>
-                <SongList songs={this.state.songs} />
+                <SongList removeSong={this.removeSong} songs={this.state.songs} />
             </div >
         );
     }
