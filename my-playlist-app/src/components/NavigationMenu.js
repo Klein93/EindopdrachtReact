@@ -53,7 +53,7 @@ function AboutMe() {
             My name is Bram and I am the developer of this little project.
             I had a great time creating this app and also learned some new cool stuff about routing too.
             Although the the app itself looks a bit weird, I am proud to make it this far.
-            P.S.: not all the songs in the playlist are real songs
+            P.S.: not all the songs in the playlist are real songs that I actually enjoy.
             </p>
         </div>
     );

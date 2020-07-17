@@ -4,6 +4,7 @@ import SongList from "./SongList"
 import CheckboxTitle from "./CheckboxTitle"
 import CheckboxArtist from "./CheckboxArtist"
 import CheckboxRating from "./CheckboxRating"
+import Checkbox from "./Checkbox"
 
 class SongOverview extends React.Component {
 
@@ -44,9 +45,9 @@ class SongOverview extends React.Component {
         }
 
         this.addSong = this.addSong.bind(this)
-        this.filterTitle = this.filterTitle.bind(this)
-        this.filterArtist = this.filterArtist.bind(this)
-        this.filterRating = this.filterRating.bind(this)
+        this.sortTitle = this.sortTitle.bind(this)
+        this.sortArtist = this.sortArtist.bind(this)
+        this.sortRating = this.sortRating.bind(this)
 
     }
 
@@ -62,35 +63,38 @@ class SongOverview extends React.Component {
 
     };
 
-    filterTitle = () => {
-        const filteredByTitle = this.state.songs.sort((a, b) => (a.title > b.title) ? 1 : -1);
+    sortTitle = () => {
+        const sortedByTitle = this.state.songs.sort((a, b) => (a.title > b.title) ? 1 : -1);
         this.setState({
-            songs: filteredByTitle
+            songs: sortedByTitle
         })
     };
 
-    filterArtist = () => {
-        const filteredByArtist = this.state.songs.sort((a, b) => (a.artist > b.artist) ? 1 : -1);
+    sortArtist = () => {
+        const sortedByArtist = this.state.songs.sort((a, b) => (a.artist > b.artist) ? 1 : -1);
         this.setState({
-            songs: filteredByArtist
+            songs: sortedByArtist
         })
     };
 
-    filterRating = () => {
-        const filteredByRating = this.state.songs.sort(function (a, b) { return b.rating - a.rating });
+    sortRating = () => {
+        const sortedByRating = this.state.songs.sort(function (a, b) { return b.rating - a.rating });
         this.setState({
-            songs: filteredByRating
+            songs: sortedByRating
         })
     }
 
     render() {
         return (
             <div>
-                <CheckboxTitle filterTitle={this.filterTitle} />
+                <Checkbox sortFunction={this.sortTitle} />Sort by Title
+                <Checkbox sortFunction={this.sortArtist} />Sort by Artist
+                <Checkbox sortFunction={this.sortRating} />Sort by Rating
+
+                {/* <CheckboxTitle filterTitle={this.filterTitle} />
                 <CheckboxArtist filterArtist={this.filterArtist} />
-                <CheckboxRating filterRating={this.filterRating} />
+                <CheckboxRating filterRating={this.filterRating} /> */}
                 <SongForm addSong={this.addSong} />
-                {/* <SongForm addSong={this.addSong} /> */}
                 <table style={{ width: `100%` }}>
                     <tbody>
                         <tr className="song-header">

@@ -12,7 +12,6 @@ class SongForm extends React.Component {
 
         }
 
-        //this.bind
         this.changeSongTitleState = this.changeSongTitleState.bind(this)
         this.changeArtistState = this.changeArtistState.bind(this)
         this.changeGenreState = this.changeGenreState.bind(this)
@@ -20,7 +19,6 @@ class SongForm extends React.Component {
         this.submitChangedInput = this.submitChangedInput.bind(this)
     }
 
-    //functies
     changeSongTitleState(event) {
         this.setState({
             title: event.target.value
@@ -47,19 +45,21 @@ class SongForm extends React.Component {
 
     submitChangedInput(event) {
         event.preventDefault();
-        console.log(this.state)
         this.props.addSong(this.state)
         this.setState({
-            song: {}
+            title: "",
+            artist: "",
+            genre: "",
+            rating: ""
         })
+
     }
 
     render() {
         return (
-            //<form onSubmit={this.submitChangedInput}>
             <form onSubmit={this.submitChangedInput}>
-                <input onChange={this.changeSongTitleState} type="text" placeholder="Song"></input>
-                <input onChange={this.changeArtistState} type="text" placeholder="Artist"></input>
+                <input value={this.state.title} onChange={this.changeSongTitleState} type="text" placeholder="Song"></input>
+                <input value={this.state.artist} onChange={this.changeArtistState} type="text" placeholder="Artist"></input>
                 <select
                     onChange={this.changeGenreState}
                     value={this.state.genre}
