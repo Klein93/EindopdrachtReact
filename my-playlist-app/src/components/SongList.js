@@ -11,9 +11,13 @@ function SongList(props) {
             genre={song.genre} rating={song.rating} removeSong={props.removeSong} />)
 
     return (
-        <div>
-            {songItems}
-        </div>
+        <table style={{ width: `100%` }}>
+            <tbody>
+                <tr>
+                    {songItems}
+                </tr>
+            </tbody>
+        </table>
     )
 
 }

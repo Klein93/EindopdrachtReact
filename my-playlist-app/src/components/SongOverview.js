@@ -1,7 +1,7 @@
 import React from "react"
 import SongForm from "./SongForm"
 import SongList from "./SongList"
-import Checkbox from "./Checkbox"
+import Radiobutton from "./Radiobutton"
 
 class SongOverview extends React.Component {
 
@@ -74,10 +74,10 @@ class SongOverview extends React.Component {
     render() {
         return (
             <div>
-                <Checkbox sortFunction={this.sortTitle} />Sort by Title
-                <Checkbox sortFunction={this.sortArtist} />Sort by Artist
-                <Checkbox sortFunction={this.sortGenre} />Sort by Genre
-                <Checkbox sortFunction={this.sortRating} />Sort by Rating
+                <Radiobutton sortFunction={this.sortTitle} />Sort by Title
+                <Radiobutton sortFunction={this.sortArtist} />Sort by Artist
+                <Radiobutton sortFunction={this.sortGenre} />Sort by Genre
+                <Radiobutton sortFunction={this.sortRating} />Sort by Rating
 
                 <SongForm addSong={this.addSong} />
                 <table style={{ width: `100%` }}>
