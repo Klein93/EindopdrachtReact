@@ -10,34 +10,7 @@ class SongOverview extends React.Component {
         this.state =
         {
             songs: [
-                {
-                    id: 1,
-                    title: `Floppy`,
-                    artist: `Youp van 't Hack`,
-                    genre: `blues`,
-                    rating: `2`
-                },
-                {
-                    id: 2,
-                    title: `Another Bug in the File`,
-                    artist: `Pink Floyd`,
-                    genre: `rock`,
-                    rating: `5`
-                },
-                {
-                    id: 3,
-                    title: `Sorry`,
-                    artist: `Mark Rutte`,
-                    genre: `alternative`,
-                    rating: `3`
-                },
-                {
-                    id: 4,
-                    title: `Lucretia my Reflection`,
-                    artist: `Sisters of Mercy`,
-                    genre: `rock`,
-                    rating: `10`
-                }
+
             ]
         }
 
