@@ -14,17 +14,31 @@ class SongOverview extends React.Component {
             songs: [
                 {
                     id: 1,
-                    title: `floppy`,
-                    artist: `youp van t hack`,
+                    title: `Floppy`,
+                    artist: `Youp van 't Hack`,
                     genre: `Blues`,
                     rating: `2`
                 },
                 {
                     id: 2,
-                    title: `another bug in the file`,
-                    artist: `pink floyd`,
+                    title: `Another Bug in the File`,
+                    artist: `Pink Floyd`,
                     genre: `Rock`,
                     rating: `5`
+                },
+                {
+                    id: 3,
+                    title: `Sorry`,
+                    artist: `Mark Rutte`,
+                    genre: `Alternative`,
+                    rating: `3`
+                },
+                {
+                    id: 4,
+                    title: `Lucretia my Reflection`,
+                    artist: `Sisters of Mercy`,
+                    genre: `Rock`,
+                    rating: `10`
                 }
             ]
         }
@@ -63,7 +77,7 @@ class SongOverview extends React.Component {
     };
 
     filterRating = () => {
-        const filteredByRating = this.state.songs.sort((a, b) => (a.rating > b.rating) ? 1 : -1);
+        const filteredByRating = this.state.songs.sort(function (a, b) { return b.rating - a.rating });
         this.setState({
             songs: filteredByRating
         })
