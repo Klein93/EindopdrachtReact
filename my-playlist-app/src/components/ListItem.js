@@ -1,15 +1,16 @@
 import React from "react"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function ListItem(props) {
     return (
-        <th style={{ display: `flex`, width: "100%", justifyContent: "spaceAround" }}>
-            <div>{props.title}</div>
-            <div>{props.artist}</div>
-            <div>{props.genre}</div>
-            <div>{props.rating}</div>
-            <button onClick={() => props.removeSong(props.id)}>Remove</button>
-        </th>
+        <tr>
+            <td>{props.title}</td>
+            <td>{props.artist}</td>
+            <td>{props.genre}</td>
+            <td>{props.rating}</td>
+            <td><button onClick={() => props.removeSong(props.id)}>Remove</button></td>
+        </tr>
     )
 
 }

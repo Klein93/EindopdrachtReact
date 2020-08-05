@@ -6,6 +6,7 @@ import {
     Route,
     Link,
 } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function NavigationMenu() {
     return (
@@ -38,7 +39,12 @@ export default function NavigationMenu() {
 function Home() {
     return (
         <div>
-            <h2>My React Playlist</h2>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4"><h2>My React Playlist</h2></div>
+                <div class="col-sm-4"></div>
+            </div>
+
             <SongOverview />
         </div>
     );

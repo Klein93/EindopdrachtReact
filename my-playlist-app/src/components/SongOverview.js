@@ -2,6 +2,7 @@ import React from "react"
 import SongForm from "./SongForm"
 import SongList from "./SongList"
 import Radiobutton from "./Radiobutton"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class SongOverview extends React.Component {
 
@@ -73,23 +74,19 @@ class SongOverview extends React.Component {
 
     render() {
         return (
-            <div>
-                <Radiobutton sortFunction={this.sortTitle} />Sort by Title
-                <Radiobutton sortFunction={this.sortArtist} />Sort by Artist
-                <Radiobutton sortFunction={this.sortGenre} />Sort by Genre
-                <Radiobutton sortFunction={this.sortRating} />Sort by Rating
-
-                <SongForm addSong={this.addSong} />
-                <table style={{ width: `100%` }}>
+            <div >
+                <table class="table">
                     <tbody>
-                        <tr className="song-header">
-                            <th className="song-row__item">Song</th>
-                            <th className="song-row__item">Artist</th>
-                            <th className="song-row__item">Genre</th>
-                            <th className="song-row__item">Rating</th>
+                        <tr>
+                            <td><Radiobutton sortFunction={this.sortTitle} />Sort by Title</td>
+                            <td><Radiobutton sortFunction={this.sortArtist} />Sort by Artist</td>
+                            <td><Radiobutton sortFunction={this.sortGenre} />Sort by Genre</td>
+                            <td><Radiobutton sortFunction={this.sortRating} />Sort by Rating</td>
                         </tr>
                     </tbody>
                 </table>
+
+                <SongForm addSong={this.addSong} />
                 <SongList removeSong={this.removeSong} songs={this.state.songs} />
             </div >
         );

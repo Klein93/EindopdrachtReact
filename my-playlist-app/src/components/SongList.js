@@ -1,5 +1,6 @@
 import React from "react"
 import ListItem from "./ListItem"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 
@@ -11,11 +12,19 @@ function SongList(props) {
             genre={song.genre} rating={song.rating} removeSong={props.removeSong} />)
 
     return (
-        <table style={{ width: `100%` }}>
-            <tbody>
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    {songItems}
+                    <th>Song</th>
+                    <th>Artist</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
                 </tr>
+            </thead>
+            <tbody>
+
+                {songItems}
+
             </tbody>
         </table>
     )

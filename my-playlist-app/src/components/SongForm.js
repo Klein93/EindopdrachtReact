@@ -1,5 +1,6 @@
 import React from "react"
 
+
 class SongForm extends React.Component {
     constructor(props) {
         super(props)
@@ -57,13 +58,15 @@ class SongForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.submitChangedInput}>
-                <input value={this.state.title} onChange={this.changeSongTitleState} type="text" placeholder="Song"></input>
-                <input value={this.state.artist} onChange={this.changeArtistState} type="text" placeholder="Artist"></input>
+
+            <form class="row" onSubmit={this.submitChangedInput}>
+                <input value={this.state.title} onChange={this.changeSongTitleState} type="text" placeholder="Song" class="col-sm-2"></input>
+                <input value={this.state.artist} onChange={this.changeArtistState} type="text" placeholder="Artist" class="col-sm-2"></input>
                 <select
                     onChange={this.changeGenreState}
                     value={this.state.genre}
                     name="genre"
+                    class="col-sm-2"
                 >
                     <option value="">--Select Genre--</option>
                     <option value="rock">Rock</option>
@@ -78,6 +81,7 @@ class SongForm extends React.Component {
                     value={this.state.rating}
                     name="rating"
                     onChange={this.changeRatingState}
+                    class="col-sm-2"
 
                 >
                     <option value="">--Rating--</option>
@@ -93,10 +97,11 @@ class SongForm extends React.Component {
                     <option value="10">10</option>
 
                 </select>
-
-                <button type="submit" value="Add Song">Add Song</button>
+                <div class="col-sm-3"></div>
+                <button type="submit" value="Add Song" class="col-sm-1">Add Song</button>
 
             </form>
+
         )
 
     }
@@ -104,9 +109,3 @@ class SongForm extends React.Component {
 
 export default SongForm
 
-
-//state van deze component moet een song object worden {},
-//zodat this.state als argument kan worden meegegeven aan
-//addSong in songoverview en dat object aan de array toevoegt
-//met onSubmit wordt de state van deze component als argument doorgegeven en worden
-//de properties in this.state terug gezet naar ""
